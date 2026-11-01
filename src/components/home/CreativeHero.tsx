@@ -77,13 +77,8 @@ export default function CreativeHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.42 }}
             >
-              <div className="creative-name">
-                {profile.name} <span aria-hidden="true">/</span> {profile.title}
-              </div>
               <p className="creative-description">
-                I design and develop modern web applications, intuitive user interfaces, and reliable
-                backend systems. I enjoy turning complex ideas into practical digital experiences through
-                thoughtful engineering and clean code.
+                {profile.intro}
               </p>
               <div className="creative-ctas">
                 <Link href="/projects" className="ui-button ui-button--primary ui-button--lg">
@@ -91,6 +86,9 @@ export default function CreativeHero() {
                 </Link>
                 <Link href="/about" className="ui-button ui-button--outline ui-button--lg">
                   About Me <ArrowUpRight size={17} aria-hidden="true" />
+                </Link>
+                <Link href="/contact" className="ui-button ui-button--outline ui-button--lg">
+                  Contact Me <ArrowUpRight size={17} aria-hidden="true" />
                 </Link>
                 {profile.cv && (
                   <a
@@ -101,15 +99,6 @@ export default function CreativeHero() {
                     Download CV <Download size={17} aria-hidden="true" />
                   </a>
                 )}
-                <Link href="/contact" className="ui-button ui-button--outline ui-button--lg">
-                  Contact Me <ArrowUpRight size={17} aria-hidden="true" />
-                </Link>
-                <a href={profile.cv} download className="ui-button ui-button--outline ui-button--lg">
-                  Download CV <Download size={17} aria-hidden="true" />
-                </a>
-              </div>
-              <div className="creative-smallprint">
-                Available for freelance work and collaborations
               </div>
             </motion.div>
           </div>
@@ -143,6 +132,15 @@ export default function CreativeHero() {
                 />
               </div>
             </motion.div>
+
+            <div className="creative-identity">
+              <div className="creative-identity-badge">{profile.availability}</div>
+              <h2 className="creative-identity-name">{profile.name}</h2>
+              <p className="creative-identity-title">{profile.title}</p>
+              <p className="creative-identity-location">
+                {profile.location} · Hometown: {profile.hometown}
+              </p>
+            </div>
           </div>
         </div>
 

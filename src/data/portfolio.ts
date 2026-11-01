@@ -85,7 +85,7 @@ export const portfolioData: PortfolioData = {
     ],
     location: 'Khulna, Bangladesh',
     hometown: 'Bagerhat, Bangladesh',
-    availability: 'Open to full-time roles, freelance projects & collaboration',
+    availability: 'Open to Internship, Junior Developer, and Full Stack Roles',
     photo: '/sudipto.jpg',
     email: 'sudiptodas8900@gmail.com',
     phone: '+880 1701-054096',

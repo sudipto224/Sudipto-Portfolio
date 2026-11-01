@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import { Mail, Smartphone, Phone, MapPin, Github, Linkedin, MessageCircle, Link as LinkIcon, Download } from 'lucide-react';
+import { Mail, Smartphone, Phone, Github, Linkedin, MessageCircle, Link as LinkIcon } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
 import { portfolioData } from '@/data/portfolio';
 import { cn } from '@/lib/cn';
@@ -12,8 +12,8 @@ const CONTACT_ITEMS = [
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}`, Icon: Mail, external: false },
   { label: 'Phone', value: profile.phone, href: `tel:${profile.phone}`, Icon: Phone, external: false },
   { label: 'WhatsApp', value: 'Message on WhatsApp', href: profile.whatsapp, Icon: Smartphone, external: true },
-  { label: 'Location', value: profile.location, href: '#', Icon: MapPin, external: false },
-  { label: 'Curriculum Vitae', value: 'Download CV (PDF)', href: profile.cv, Icon: Download, external: false, download: true },
+  { label: 'LinkedIn', value: 'Sudipto Das', href: 'https://www.linkedin.com/in/sudipto-das-7b3a4327a/', Icon: Linkedin, external: true },
+  { label: 'GitHub', value: 'sudipto224', href: 'https://github.com/sudipto224/', Icon: Github, external: true },
 ];
 
 function isValidEmail(value: string) {
@@ -89,7 +89,11 @@ export default function Contact() {
             <Reveal className="contact-info-card">
               <h2 className="heading-md">Get in touch</h2>
               <p className="contact-info-intro">
-                The best ways to reach me. All links open directly to the relevant profile or app.
+                Interested in working together? I&rsquo;m open to internships, junior developer roles,
+                freelance work, and collaborative opportunities.
+              </p>
+              <p className="contact-info-intro contact-info-sub">
+                The best ways to reach me are listed below.
               </p>
               <div className="contact-list">
                 {CONTACT_ITEMS.map((item) => (
@@ -103,7 +107,6 @@ export default function Contact() {
                       href={item.href}
                       target={item.external ? '_blank' : undefined}
                       rel={item.external ? 'noreferrer' : undefined}
-                      {...(item.download ? { download: true } : {})}
                       className={cn('contact-item-value', item.external ? 'contact-item-value--external' : '')}
                     >
                       {item.value}

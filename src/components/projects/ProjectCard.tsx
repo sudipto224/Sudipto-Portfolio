@@ -90,6 +90,7 @@ export function ProjectCard({ project, variant = 'default', className }: Project
           <span className="project-index">{project.category}</span>
         </div>
         <div className="project-body">
+          <span className="project-role">{project.role}</span>
           <h3 className="project-title">{project.name}</h3>
           <p className="project-excerpt">{project.description}</p>
           <div className="project-tech">
