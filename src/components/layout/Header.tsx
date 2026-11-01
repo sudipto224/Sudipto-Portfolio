@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Github, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/cn';
 
@@ -121,7 +121,7 @@ function MobileNavigation({
           </Link>
           <div className="mobile-socials">
             <a href="https://github.com/sudipto224/" target="_blank" rel="noreferrer" aria-label="GitHub">
-              <Phone size={18} strokeWidth={2} />
+              <Github size={18} strokeWidth={2} />
             </a>
             <a href="mailto:sudiptodas8900@gmail.com" aria-label="Email">
               <Mail size={18} strokeWidth={2} />
