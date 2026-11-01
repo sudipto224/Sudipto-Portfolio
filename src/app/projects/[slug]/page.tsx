@@ -45,7 +45,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
           </div>
         </div>
         <div className="project-hero-image">
-          <img src={project.image} alt={`${project.name} screenshot`} />
+          <img src={project.image} alt={`${project.name} illustration`} />
         </div>
       </section>
 
@@ -97,12 +97,12 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         <div className="container">
           <div className="section-head">
             <div className="kicker"><span>04</span> Visuals</div>
-            <h2 className="heading-lg">Screenshot gallery</h2>
+            <h2 className="heading-lg">Illustration gallery</h2>
           </div>
           <div className="gallery-grid">
             {project.gallery.map((img, i) => (
               <div key={i} className="gallery-item">
-                <img src={img} alt={`${project.name} screenshot ${i + 1}`} />
+                <img src={img} alt={`${project.name} illustration ${i + 1}`} />
               </div>
             ))}
           </div>

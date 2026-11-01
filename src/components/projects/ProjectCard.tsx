@@ -21,7 +21,7 @@ export function ProjectCard({ project, variant = 'default' }: { project: Project
         <div className="project-visual-wrap">
           <Image
             src={project.image}
-            alt={`${project.name} editorial preview`}
+            alt={`${project.name} illustration`}
             width={isFeatured ? 700 : 420}
             height={isFeatured ? 520 : 320}
             className="project-image"

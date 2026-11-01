@@ -180,11 +180,11 @@ export const portfolioData: PortfolioData = {
       tech: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
       github: 'https://github.com/sudipto224/Modern-ecommerce-platform',
       live: 'https://modern-ecommerce-platform-lac.vercel.app',
-      image: '/images/projects/mehedi-by-meherin.jpg',
+      image: '/images/projects/mehedi-by-meherin.svg',
       gallery: [
-        '/images/projects/mehedi-by-meherin.jpg',
-        '/images/projects/mehedi-by-meherin-2.jpg',
-        '/images/projects/mehedi-by-meherin-3.jpg',
+        '/images/projects/mehedi-by-meherin.svg',
+        '/images/projects/mehedi-by-meherin-2.svg',
+        '/images/projects/mehedi-by-meherin-3.svg',
       ],
       featured: true,
       approach:
@@ -212,11 +212,11 @@ export const portfolioData: PortfolioData = {
       tech: ['Laravel', 'React', 'Inertia.js', 'MySQL', 'Groq AI'],
       github: 'https://github.com/sudipto224/AI-based-Smart-Quiz-System',
       live: 'https://ai-based-smart-quiz-system.onrender.com',
-      image: '/images/projects/quizora.jpg',
+      image: '/images/projects/quizora.svg',
       gallery: [
-        '/images/projects/quizora.jpg',
-        '/images/projects/quizora-2.jpg',
-        '/images/projects/quizora-3.jpg',
+        '/images/projects/quizora.svg',
+        '/images/projects/quizora-2.svg',
+        '/images/projects/quizora-3.svg',
       ],
       featured: true,
       approach:
@@ -246,11 +246,11 @@ export const portfolioData: PortfolioData = {
       tech: ['React', 'Vite', 'JavaScript', 'Tailwind CSS'],
       github: 'https://github.com/sudipto224/Singlesociety',
       live: 'https://singlesociety.vercel.app',
-      image: '/images/projects/single-society.jpg',
+      image: '/images/projects/single-society.svg',
       gallery: [
-        '/images/projects/single-society.jpg',
-        '/images/projects/single-society-2.jpg',
-        '/images/projects/single-society-3.jpg',
+        '/images/projects/single-society.svg',
+        '/images/projects/single-society-2.svg',
+        '/images/projects/single-society-3.svg',
       ],
       featured: true,
       approach:
