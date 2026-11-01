@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <radialGradient id="g5" cx="45%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#EEF4FF"/>
+      <stop offset="100%" stop-color="#E3EAFD"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g5)"/>
+  <rect x="240" y="160" width="320" height="340" rx="16" fill="#FFF" stroke="#D9D6CE" stroke-width="1"/>
+  <path d="M400 210 Q 460 210 460 270 L 460 330 Q 460 370 400 370 Q 340 370 340 330 L 340 270 Q 340 210 400 210" fill="#405CF5"/>
+  <rect x="340" y="240" width="120" height="6" rx="3" fill="#FFF"/>
+  <rect x="340" y="256" width="80" height="6" rx="3" fill="#FFF" opacity="0.85"/>
+  <rect x="340" y="272" width="60" height="6" rx="3" fill="#FFF" opacity="0.7"/>
+  <circle cx="300" cy="320" r="12" fill="#405CF5" opacity="0.8"/>
+  <circle cx="380" cy="340" r="9" fill="#405CF5" opacity="0.6"/>
+  <circle cx="460" cy="320" r="10" fill="#405CF5" opacity="0.7"/>
+  <circle cx="540" cy="250" r="7" fill="#405CF5" opacity="0.5"/>
+  <circle cx="270" cy="430" r="6" fill="#405CF5" opacity="0.45"/>
+  <rect x="300" y="450" width="200" height="7" rx="4" fill="#ECEAE5"/>
+  <rect x="300" y="468" width="140" height="7" rx="4" fill="#ECEAE5" opacity="0.6"/>
+  <text x="400" y="560" font-family="Inter, sans-serif" font-size="14" fill="#8A867E" text-anchor="middle" letter-spacing="0.12em">Quizora · AI generation detail</text>
+</svg>

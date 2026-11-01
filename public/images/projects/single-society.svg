@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <radialGradient id="g7" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#F2F0EC"/>
+      <stop offset="100%" stop-color="#E9E6DF"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g7)"/>
+  <circle cx="400" cy="280" r="100" fill="none" stroke="#141414" stroke-width="2.5"/>
+  <circle cx="400" cy="280" r="62" fill="none" stroke="#141414" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="400" cy="280" r="22" fill="#141414"/>
+  <path d="M400 280 L 400 230" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M400 280 L 360 232" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M400 280 L 440 232" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M300 340 Q 380 360 400 350 Q 420 360 500 340" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="300" cy="340" r="7" fill="#141414" opacity="0.8"/>
+  <circle cx="500" cy="340" r="7" fill="#141414" opacity="0.8"/>
+  <rect x="220" y="460" width="360" height="70" rx="10" fill="#FFF" stroke="#D9D6CE" stroke-width="1"/>
+  <rect x="260" y="476" width="130" height="9" rx="4" fill="#ECEAE5"/>
+  <rect x="410" y="476" width="90" height="9" rx="4" fill="#ECEAE5"/>
+  <rect x="260" y="496" width="90" height="8" rx="4" fill="#ECEAE5" opacity="0.75"/>
+  <text x="400" y="555" font-family="Inter, sans-serif" font-size="14" fill="#5A5650" text-anchor="middle" letter-spacing="0.12em">Bangladesh Single Society · Editorial illustration</text>
+</svg>
