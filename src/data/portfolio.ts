@@ -47,9 +47,9 @@ export const portfolioData: PortfolioData = {
   profile: {
     name: 'Sudipto Das',
     title: 'Full Stack Developer',
-    eyebrow: 'Independent Full Stack Developer',
-    headline: 'Building digital experiences that matter.',
-    intro: 'I design and develop thoughtful digital products, from elegant interfaces to powerful backend systems.',
+    eyebrow: '',
+    headline: 'Hi, I am Sudipto.',
+    intro: 'I build modern web applications, scalable backend systems and carefully designed digital products.',
     about:
       "I'm Sudipto Das, a Computer Science and Engineering student at Northern University of Business & Technology Khulna. I build full-stack web applications, modern frontend interfaces, backend systems, e-commerce platforms, and AI-assisted tools. My work spans database design, REST APIs, and thoughtful product engineering, driven by curiosity and problem-solving.",
     location: 'Khulna, Bangladesh',

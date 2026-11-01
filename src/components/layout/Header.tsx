@@ -39,11 +39,6 @@ export function Header() {
     <>
       <header className="site-header">
         <div className="container header-inner">
-          <div className="brand-wrap">
-            <Link href="/" className="brand" aria-label="Sudipto Das homepage">
-              Sudipto<span className="brand-fine"> Das</span>
-            </Link>
-          </div>
           <nav className="main-nav" aria-label="Main navigation">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
@@ -100,9 +95,6 @@ function MobileNavigation({
       <div className="mobile-menu-backdrop" onClick={onClose} />
       <div className="mobile-menu-panel">
         <div className="mobile-menu-header">
-          <Link href="/" className="mobile-brand">
-            Sudipto<span className="brand-fine"> Das</span>
-          </Link>
           <button className="mobile-close" aria-label="Close menu" onClick={onClose}>
             <X size={22} strokeWidth={2.2} />
           </button>
