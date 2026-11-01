@@ -104,6 +104,9 @@ export default function CreativeHero() {
                 <Link href="/contact" className="ui-button ui-button--outline ui-button--lg">
                   Contact Me <ArrowUpRight size={17} aria-hidden="true" />
                 </Link>
+                <a href={profile.cv} download className="ui-button ui-button--outline ui-button--lg">
+                  Download CV <Download size={17} aria-hidden="true" />
+                </a>
               </div>
               <div className="creative-smallprint">
                 Available for freelance work and collaborations
