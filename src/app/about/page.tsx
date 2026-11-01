@@ -5,8 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Reveal, Stagger } from '@/components/motion/Reveal';
 import { Button } from '@/components/ui/Button';
-import { X, FileText, Download, Link as LinkIcon } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio';
+import { X, FileText, Download, Link as LinkIcon } from 'lucide-react';import { portfolioData } from '@/data/portfolio';
 
 const { profile, education } = portfolioData;
 
@@ -61,18 +60,35 @@ export default function About() {
                   <dd>{profile.location}</dd>
                 </div>
                 <div className="details-item">
+                  <dt>Hometown</dt>
+                  <dd>{profile.hometown}</dd>
+                </div>
+                <div className="details-item">
+                  <dt>Phone</dt>
+                  <dd>{profile.phone}</dd>
+                </div>
+                <div className="details-item">
+                  <dt>Email</dt>
+                  <dd>{profile.email}</dd>
+                </div>
+                <div className="details-item">
                   <dt>Availability</dt>
                   <dd>{profile.availability}</dd>
                 </div>
-                <div className="details-item">
-                  <dt>Education</dt>
-                  <dd>{education[0].degree}</dd>
-                </div>
-                <div className="details-item">
-                  <dt>Institution</dt>
-                  <dd>{education[0].institution}</dd>
-                </div>
               </dl>
+              <div className="education-list">
+                <h3 className="education-title">Education</h3>
+                {education.map((edu) => (
+                  <div key={edu.degree} className="education-item">
+                    <div className="education-head">
+                      <span className="education-degree">{edu.degree}</span>
+                      <span className="education-period">{edu.period}</span>
+                    </div>
+                    <span className="education-institution">{edu.institution}</span>
+                    <p className="education-desc">{edu.description}</p>
+                  </div>
+                ))}
+              </div>
             </Reveal>
           </div>
           <div className="about-copy">
@@ -199,6 +215,11 @@ export default function About() {
             <div className="connect-actions">
               <Button variant="primary" href="/projects">View Projects</Button>
               <Button variant="outline" href="/contact">Let's Connect</Button>
+              {profile.cv && (
+                <a href={profile.cv} download className="ui-button ui-button--outline connect-cv">
+                  Download CV <Download size={16} strokeWidth={2} aria-hidden="true" />
+                </a>
+              )}
             </div>
           </Reveal>
         </div>

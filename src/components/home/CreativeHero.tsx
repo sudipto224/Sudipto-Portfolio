@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Download } from 'lucide-react';
 import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 
@@ -92,6 +92,15 @@ export default function CreativeHero() {
                 <Link href="/about" className="ui-button ui-button--outline ui-button--lg">
                   About Me <ArrowUpRight size={17} aria-hidden="true" />
                 </Link>
+                {profile.cv && (
+                  <a
+                    href={profile.cv}
+                    download
+                    className="ui-button ui-button--outline ui-button--lg"
+                  >
+                    Download CV <Download size={17} aria-hidden="true" />
+                  </a>
+                )}
                 <Link href="/contact" className="ui-button ui-button--outline ui-button--lg">
                   Contact Me <ArrowUpRight size={17} aria-hidden="true" />
                 </Link>

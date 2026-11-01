@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import { Mail, Smartphone, MapPin, Github, Linkedin, MessageCircle, Link as LinkIcon } from 'lucide-react';
+import { Mail, Smartphone, Phone, MapPin, Github, Linkedin, MessageCircle, Link as LinkIcon, Download } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
 import { portfolioData } from '@/data/portfolio';
 import { cn } from '@/lib/cn';
@@ -10,8 +10,10 @@ const { profile, socials } = portfolioData;
 
 const CONTACT_ITEMS = [
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}`, Icon: Mail, external: false },
+  { label: 'Phone', value: profile.phone, href: `tel:${profile.phone}`, Icon: Phone, external: false },
   { label: 'WhatsApp', value: 'Message on WhatsApp', href: profile.whatsapp, Icon: Smartphone, external: true },
   { label: 'Location', value: profile.location, href: '#', Icon: MapPin, external: false },
+  { label: 'Curriculum Vitae', value: 'Download CV (PDF)', href: profile.cv, Icon: Download, external: false, download: true },
 ];
 
 function isValidEmail(value: string) {
@@ -97,14 +99,15 @@ export default function Contact() {
                     </div>
                     <div className="contact-item-copy">
                       <span className="contact-item-label">{item.label}</span>
-                      <a
-                        href={item.href}
-                        target={item.external ? '_blank' : undefined}
-                        rel={item.external ? 'noreferrer' : undefined}
-                        className={cn('contact-item-value', item.external ? 'contact-item-value--external' : '')}
-                      >
-                        {item.value}
-                      </a>
+                    <a
+                      href={item.href}
+                      target={item.external ? '_blank' : undefined}
+                      rel={item.external ? 'noreferrer' : undefined}
+                      {...(item.download ? { download: true } : {})}
+                      className={cn('contact-item-value', item.external ? 'contact-item-value--external' : '')}
+                    >
+                      {item.value}
+                    </a>
                     </div>
                   </div>
                 ))}
@@ -228,6 +231,9 @@ export default function Contact() {
             <p>Send an email or message me on WhatsApp to get started.</p>
           </Reveal>
           <div className="contact-strip-actions">
+            <a href={`tel:${profile.phone}`} className="contact-strip-button">
+              Call {profile.phone}
+            </a>
             <a href={`mailto:${profile.email}`} className="contact-strip-button">
               Email me
             </a>

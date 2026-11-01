@@ -36,9 +36,11 @@ export type PortfolioData = {
     interests: string[];
     strengths: string[];
     location: string;
+    hometown: string;
     availability: string;
     photo: string;
     email: string;
+    phone: string;
     whatsapp: string;
     cv: string;
     certification: Certification;
@@ -82,16 +84,18 @@ export const portfolioData: PortfolioData = {
       'AI integration',
     ],
     location: 'Khulna, Bangladesh',
+    hometown: 'Bagerhat, Bangladesh',
     availability: 'Open to full-time roles, freelance projects & collaboration',
     photo: '/sudipto.jpg',
     email: 'sudiptodas8900@gmail.com',
+    phone: '+880 1701-054096',
     whatsapp: 'https://wa.me/8801701054096',
-    cv: '',
+    cv: '/documents/Sudipto_Das_Professional_CV.pdf',
     certification: {
       title: 'Laravel 1-Month Industrial Training Program',
       organization: 'Appstick',
       duration: 'February 1, 2026 – March 4, 2026',
-      location: 'Appstick, Khulna',
+      location: 'Khulna, Bangladesh',
       image: '/images/certificate/laravel-training.jpg',
     },
   },
@@ -106,6 +110,7 @@ export const portfolioData: PortfolioData = {
     'PHP',
     'Laravel',
     'REST APIs',
+    'Inertia.js',
     'MySQL',
     'PostgreSQL',
     'Supabase',
@@ -136,6 +141,7 @@ export const portfolioData: PortfolioData = {
       items: [
         { name: 'PHP', icon: 'php' },
         { name: 'Laravel', icon: 'laravel' },
+        { name: 'Inertia.js', icon: 'api' },
         { name: 'REST APIs', icon: 'api' },
       ],
     },
@@ -196,9 +202,23 @@ export const portfolioData: PortfolioData = {
     {
       degree: 'B.Sc. in Computer Science & Engineering',
       institution: 'Northern University of Business & Technology Khulna',
-      period: 'Current student',
+      period: 'Expected December 2026',
       description:
-        'Building a foundation in software engineering while developing practical web applications — from e-commerce platforms to AI-assisted education tools.',
+        'CGPA: 3.67 / 4.00. Final result pending, expected December 2026.',
+    },
+    {
+      degree: 'Higher Secondary Certificate (HSC)',
+      institution: 'Khan Jahan Ali College, Bagerhat',
+      period: 'GPA: 5.00 / 5.00',
+      description:
+        'Science group. Completed with a perfect GPA of 5.00 out of 5.00.',
+    },
+    {
+      degree: 'Secondary School Certificate (SSC)',
+      institution: 'Bagerhat Govt. High School, Bagerhat',
+      period: 'GPA: 4.56 / 5.00',
+      description:
+        'Completed with a GPA of 4.56 out of 5.00.',
     },
   ],
   projects: [
