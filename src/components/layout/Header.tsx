@@ -1,11 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Github, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/cn';
+import { ThemeToggle } from './ThemeToggle';
+import { initTheme, resolveTheme, setTheme, type Theme } from '@/lib/theme';
 
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
@@ -17,23 +19,23 @@ const NAV_ITEMS = [
   { label: 'Contact', href: '/contact' },
 ];
 
+function useTheme() {
+  const [theme, setThemeState] = useState<Theme>(() => resolveTheme());
+  const toggle = useCallback(() => {
+    const next: Theme = theme === 'light' ? 'dark' : 'light';
+    setThemeState(next);
+    setTheme(next);
+  }, [theme]);
+  return { theme, toggle };
+}
+
 export function Header() {
   const pathname = usePathname();
+  const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuToggle = () => setMenuOpen((prev) => !prev);
   const handleMenuClose = () => setMenuOpen(false);
-
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [menuOpen]);
 
   return (
     <>
@@ -56,6 +58,7 @@ export function Header() {
             })}
           </nav>
           <div className="header-actions">
+            <ThemeToggle theme={theme} toggle={toggle} />
             <Link href="/contact" className="nav-cta">
               Contact <span aria-hidden="true">→</span>
             </Link>
@@ -68,7 +71,13 @@ export function Header() {
 
       <AnimatePresence>
         {menuOpen && (
-          <MobileNavigation items={NAV_ITEMS} pathname={pathname} onClose={handleMenuClose} />
+          <MobileNavigation
+            items={NAV_ITEMS}
+            pathname={pathname}
+            theme={theme}
+            toggle={toggle}
+            onClose={handleMenuClose}
+          />
         )}
       </AnimatePresence>
     </>
@@ -78,10 +87,14 @@ export function Header() {
 function MobileNavigation({
   items,
   pathname,
+  theme,
+  toggle,
   onClose,
 }: {
   items: typeof NAV_ITEMS;
   pathname: string;
+  theme: Theme;
+  toggle: () => void;
   onClose: () => void;
 }) {
   return (
@@ -98,6 +111,7 @@ function MobileNavigation({
           <button className="mobile-close" aria-label="Close menu" onClick={onClose}>
             <X size={22} strokeWidth={2.2} />
           </button>
+          <ThemeToggle theme={theme} toggle={toggle} />
         </div>
         <nav className="mobile-nav" aria-label="Mobile navigation">
           {items.map((item) => {

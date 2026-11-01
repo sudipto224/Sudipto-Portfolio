@@ -17,6 +17,14 @@ export type Project = {
   features: string[];
 };
 
+export type Certification = {
+  title: string;
+  organization: string;
+  duration: string;
+  location: string;
+  image: string;
+};
+
 export type PortfolioData = {
   profile: {
     name: string;
@@ -25,12 +33,15 @@ export type PortfolioData = {
     headline: string;
     intro: string;
     about: string;
+    interests: string[];
+    strengths: string[];
     location: string;
     availability: string;
     photo: string;
     email: string;
     whatsapp: string;
     cv: string;
+    certification: Certification;
   };
   skills: string[];
   skillsGroups: {
@@ -47,17 +58,42 @@ export const portfolioData: PortfolioData = {
   profile: {
     name: 'Sudipto Das',
     title: 'Full Stack Developer',
-    eyebrow: '',
-    headline: 'Hi, I am Sudipto.',
-    intro: 'I build modern web applications, scalable backend systems and carefully designed digital products.',
+    eyebrow: 'Independent Full Stack Developer',
+    headline: 'Building Digital Products That Solve Real Problems.',
+    intro:
+      'I design and develop modern web applications, intuitive user interfaces, and reliable backend systems. I enjoy turning complex ideas into practical digital experiences through thoughtful engineering and clean code.',
     about:
-      "I'm Sudipto Das, a Computer Science and Engineering student at Northern University of Business & Technology Khulna. I build full-stack web applications, modern frontend interfaces, backend systems, e-commerce platforms, and AI-assisted tools. My work spans database design, REST APIs, and thoughtful product engineering, driven by curiosity and problem-solving.",
+      "I'm Sudipto Das, a Full Stack Developer based in Khulna, Bangladesh. I build responsive web applications, scalable backend functionality, and user-centered digital products. My work spans full-stack platforms, e-commerce systems, and AI-assisted tools — always with a focus on clean, maintainable code and real-world usefulness.",
+    interests: [
+      'Full-stack web applications',
+      'Modern frontend interfaces',
+      'Backend systems and REST APIs',
+      'E-commerce platforms',
+      'Database design and integration',
+      'AI-assisted tools',
+      'Responsive design and user experience',
+    ],
+    strengths: [
+      'HTML, CSS, JavaScript, TypeScript',
+      'React, Next.js, Tailwind CSS',
+      'Laravel, PHP, Node.js',
+      'MySQL, PostgreSQL, Supabase',
+      'Git, GitHub, VS Code, Postman',
+      'AI integration',
+    ],
     location: 'Khulna, Bangladesh',
-    availability: 'Open to freelance projects & collaboration',
+    availability: 'Open to full-time roles, freelance projects & collaboration',
     photo: '/sudipto.jpg',
     email: 'sudiptodas8900@gmail.com',
     whatsapp: 'https://wa.me/8801701054096',
     cv: '',
+    certification: {
+      title: 'Laravel 1-Month Industrial Training Program',
+      organization: 'Appstick',
+      duration: 'February 1, 2026 – March 4, 2026',
+      location: 'Appstick, Khulna',
+      image: '/images/certificate/laravel-training.jpg',
+    },
   },
   skills: [
     'HTML',
@@ -121,11 +157,11 @@ export const portfolioData: PortfolioData = {
       ],
     },
     {
-      group: 'Other Capabilities',
+      group: 'AI & Automation',
       items: [
-        { name: 'AI Integration', icon: 'ai' },
-        { name: 'Authentication', icon: 'auth' },
-        { name: 'Responsive Web Design', icon: 'responsive' },
+        { name: 'AI Integration', icon: 'bot' },
+        { name: 'Authentication', icon: 'lock' },
+        { name: 'Responsive Web Design', icon: 'smartphone' },
         { name: 'Database Integration', icon: 'database' },
       ],
     },

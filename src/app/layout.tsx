@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import './creative.css';
 import { Header } from '@/components/layout/Header';
@@ -27,6 +28,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        {/* No-flash theme init: applies saved/system theme before first paint */}
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(function(){try{const t=localStorage.getItem('portfolio-theme');const d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:d?'dark':'light')}catch(e){}})()`}
+        </Script>
+      </head>
       <body>
         <Header />
         <main>{children}</main>

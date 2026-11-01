@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowDownRight, ArrowUpRight, Github, Sparkles } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 
@@ -22,8 +22,8 @@ export default function CreativeHero() {
     const bounds = artRef.current.getBoundingClientRect();
     const nx = (event.clientX - bounds.left) / bounds.width - 0.5;
     const ny = (event.clientY - bounds.top) / bounds.height - 0.5;
-    rawX.set(-ny * 9);
-    rawY.set(nx * 10);
+    rawX.set(-ny * 7);
+    rawY.set(nx * 8);
   };
 
   const reset = () => {
@@ -43,7 +43,7 @@ export default function CreativeHero() {
               transition={{ duration: 0.65 }}
             >
               <span className="creative-live-dot" aria-hidden="true" />
-              Independent Full Stack Developer
+              {profile.title}
             </motion.div>
 
             <h1 id="creative-hero-title">
@@ -52,7 +52,7 @@ export default function CreativeHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.09 }}
               >
-                Code that
+                Building Digital Products
               </motion.span>
               <motion.span
                 className="outline-line"
@@ -60,7 +60,7 @@ export default function CreativeHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.2 }}
               >
-                feels
+                That Solve
               </motion.span>
               <motion.span
                 className="accent-line"
@@ -68,28 +68,32 @@ export default function CreativeHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.31 }}
               >
-                alive.
+                Real Problems.
               </motion.span>
             </h1>
 
             <motion.div
               initial={shouldReduceMotion ? false : { opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.4 }}
+              transition={{ duration: 0.65, delay: 0.42 }}
             >
               <div className="creative-name">
                 {profile.name} <span aria-hidden="true">/</span> {profile.title}
               </div>
               <p className="creative-description">
-                I build considered digital experiences — from expressive interfaces
-                to reliable full-stack applications. Thoughtful design meets working code.
+                I design and develop modern web applications, intuitive user interfaces, and reliable
+                backend systems. I enjoy turning complex ideas into practical digital experiences through
+                thoughtful engineering and clean code.
               </p>
               <div className="creative-ctas">
                 <Link href="/projects" className="ui-button ui-button--primary ui-button--lg">
-                  Explore my work <ArrowUpRight size={17} aria-hidden="true" />
+                  Explore Projects <ArrowUpRight size={17} aria-hidden="true" />
                 </Link>
                 <Link href="/about" className="ui-button ui-button--outline ui-button--lg">
-                  About me <ArrowUpRight size={17} aria-hidden="true" />
+                  About Me <ArrowUpRight size={17} aria-hidden="true" />
+                </Link>
+                <Link href="/contact" className="ui-button ui-button--outline ui-button--lg">
+                  Contact Me <ArrowUpRight size={17} aria-hidden="true" />
                 </Link>
               </div>
               <div className="creative-smallprint">
@@ -103,12 +107,12 @@ export default function CreativeHero() {
             className="creative-art"
             onPointerMove={onPointerMove}
             onPointerLeave={reset}
-            aria-label="Interactive layered portrait of Sudipto Das"
+            aria-label="Professional portrait of Sudipto Das"
           >
             <motion.div
               className="creative-art-stage"
               style={shouldReduceMotion ? undefined : { rotateX: tiltX, rotateY: tiltY }}
-              initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.92 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.24, ease: [0.2, 0.8, 0.2, 1] }}
             >
@@ -116,7 +120,6 @@ export default function CreativeHero() {
               <div className="creative-orbit" aria-hidden="true" />
               <div className="creative-orbit orbit-two" aria-hidden="true" />
               <div className="creative-orbit orbit-three" aria-hidden="true" />
-              <div className="creative-spark" aria-hidden="true" />
               <div className="creative-portrait-shell">
                 <Image
                   src={profile.photo}
@@ -127,15 +130,6 @@ export default function CreativeHero() {
                   priority
                 />
               </div>
-              <div className="creative-floating-chip creative-chip-top">
-                <Sparkles size={16} aria-hidden="true" />
-                <strong>Full Stack</strong>
-                <small>Creative engineering</small>
-              </div>
-              <div className="creative-floating-chip creative-chip-bottom">
-                <strong>Design × Code</strong>
-                <small>Built with intention</small>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -143,10 +137,23 @@ export default function CreativeHero() {
         <div className="creative-rail">
           <span>01 / Introduction</span>
           <Link href="/projects">
-            Selected projects <ArrowDownRight size={16} aria-hidden="true" />
+            Selected projects <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
           <a href="https://github.com/sudipto224" target="_blank" rel="noopener noreferrer">
-            <Github size={16} aria-hidden="true" /> Github
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.8m0 0L9.6 10.9m-1.6 3.2c-1.5 1.5-4 1.5-6 0m15 1.5c0 1.7-1 3-3 3m-3 0c-1.7 0-3-1-3-3m0 0c0-1.7 1-3 3-3m3 3c0 1.7 1 3 3 3" />
+            </svg>
+            Github
           </a>
         </div>
       </div>

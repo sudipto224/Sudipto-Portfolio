@@ -1,7 +1,8 @@
 'use client';
 
+import { useCallback, useState } from 'react';
+import { Mail, Smartphone, MapPin, Github, Linkedin, MessageCircle, Link as LinkIcon } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
-import { Mail, Smartphone, MapPin, Globe, Link as LinkIcon } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
 import { cn } from '@/lib/cn';
 
@@ -13,7 +14,56 @@ const CONTACT_ITEMS = [
   { label: 'Location', value: profile.location, href: '#', Icon: MapPin, external: false },
 ];
 
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 export default function Contact() {
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [formErrors, setFormErrors] = useState<{ name?: string; email?: string; subject?: string; message?: string }>({});
+
+  const handleSubmit = useCallback(
+    (event: React.FormEvent) => {
+      event.preventDefault();
+      const form = event.currentTarget as HTMLFormElement;
+      const formData = new FormData(form);
+      const name = (formData.get('name') as string).trim();
+      const email = (formData.get('email') as string).trim();
+      const subject = (formData.get('subject') as string).trim();
+      const message = (formData.get('message') as string).trim();
+
+      const errors: { name?: string; email?: string; subject?: string; message?: string } = {};
+      if (!name) errors.name = 'Full name is required.';
+      if (!email) errors.email = 'Email address is required.';
+      else if (!isValidEmail(email)) errors.email = 'Please enter a valid email address.';
+      if (!subject) errors.subject = 'Subject is required.';
+      if (!message) errors.message = 'Message is required.';
+
+      setFormErrors(errors);
+      if (Object.keys(errors).length > 0) return;
+
+      setFormStatus('submitting');
+
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Subject: ${subject}`,
+        '',
+        message,
+      ].join('\n');
+
+      const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      try {
+        window.location.href = mailtoUrl;
+        setFormStatus('success');
+      } catch {
+        setFormStatus('error');
+      }
+    },
+    [profile.email],
+  );
+
   return (
     <>
       <section className="page-hero contact-hero">
@@ -75,10 +125,97 @@ export default function Contact() {
                     className="social-item"
                   >
                     <span className="social-item-label">{social.label}</span>
-                    <LinkIcon size={16} strokeWidth={1.8} className="social-item-icon" />
+                    {social.label === 'GitHub' && <Github size={16} strokeWidth={1.8} className="social-item-icon" />}
+                    {social.label === 'LinkedIn' && <Linkedin size={16} strokeWidth={1.8} className="social-item-icon" />}
+                    {social.label === 'WhatsApp' && <Smartphone size={16} strokeWidth={1.8} className="social-item-icon" />}
+                    {!['GitHub', 'LinkedIn', 'WhatsApp'].includes(social.label) && (
+                      <LinkIcon size={16} strokeWidth={1.8} className="social-item-icon" />
+                    )}
                   </a>
                 ))}
               </div>
+            </Reveal>
+          </div>
+          <div className="contact-form">
+            <Reveal className="contact-form-card" delay={0.05}>
+              <h2 className="heading-md">Send me a message</h2>
+              <p className="contact-info-intro">I read every message and respond as soon as I can.</p>
+              <form onSubmit={handleSubmit} noValidate>
+                <div className="form-group">
+                  <label htmlFor="name">Full Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    required
+                    aria-required="true"
+                    aria-invalid={!!formErrors.name}
+                    aria-describedby={formErrors.name ? 'name-error' : undefined}
+                  />
+                  {formErrors.name && <span id="name-error" className="form-error">{formErrors.name}</span>}
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email Address</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    aria-required="true"
+                    aria-invalid={!!formErrors.email}
+                    aria-describedby={formErrors.email ? 'email-error' : undefined}
+                  />
+                  {formErrors.email && <span id="email-error" className="form-error">{formErrors.email}</span>}
+                </div>
+                <div className="form-group">
+                  <label htmlFor="subject">Subject</label>
+                  <input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    autoComplete="off"
+                    required
+                    aria-required="true"
+                    aria-invalid={!!formErrors.subject}
+                    aria-describedby={formErrors.subject ? 'subject-error' : undefined}
+                  />
+                  {formErrors.subject && <span id="subject-error" className="form-error">{formErrors.subject}</span>}
+                </div>
+                <div className="form-group">
+                  <label htmlFor="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    aria-required="true"
+                    aria-invalid={!!formErrors.message}
+                    aria-describedby={formErrors.message ? 'message-error' : undefined}
+                  />
+                  {formErrors.message && <span id="message-error" className="form-error">{formErrors.message}</span>}
+                </div>
+                <button
+                  type="submit"
+                  className="form-btn"
+                  disabled={formStatus === 'submitting'}
+                >
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+              {formStatus === 'success' && (
+                <div className="form-message form-message--success" role="status" aria-live="polite">
+                  <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
+                  Your message is ready to send — your email client has opened with the details filled in.
+                </div>
+              )}
+              {formStatus === 'error' && (
+                <div className="form-message form-message--error" role="status" aria-live="polite">
+                  Unable to open your email client. You can message me directly at{' '}
+                  <a href={`mailto:${profile.email}`}>{profile.email}</a> or on WhatsApp.
+                </div>
+              )}
             </Reveal>
           </div>
         </div>
