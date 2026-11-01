@@ -86,7 +86,7 @@ export const portfolioData: PortfolioData = {
     photo: '/sudipto.jpg',
     email: 'sudiptodas8900@gmail.com',
     whatsapp: 'https://wa.me/8801701054096',
-    cv: '',
+    cv: '/resume/sudipto-das-cv.pdf',
     certification: {
       title: 'Laravel 1-Month Industrial Training Program',
       organization: 'Appstick',
