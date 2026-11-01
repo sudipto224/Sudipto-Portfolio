@@ -1,118 +1,75 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
-import { Reveal } from '@/components/motion/Reveal';
-import { portfolioData, getFeaturedProjects } from '@/data/portfolio';
-import { Button } from '@/components/ui/Button';
+import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import CreativeHero from '@/components/home/CreativeHero';
 import { ProjectCard } from '@/components/projects/ProjectCard';
+import { getFeaturedProjects } from '@/data/portfolio';
 
-const { profile } = portfolioData;
-const featured = getFeaturedProjects();
+const projects = getFeaturedProjects();
+const capabilities = ['Full-stack applications', 'Interactive frontend engineering', 'API & backend development', 'E-commerce & booking', 'AI-powered tools', 'Database integration'];
 
 export default function Home() {
   return (
     <>
-      <section className="page-hero">
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            {profile.eyebrow && (
-              <Reveal className="hero-eyebrow-wrap">
-                <div className="eyebrow">{profile.eyebrow}</div>
-              </Reveal>
-            )}
-            <Reveal className="hero-name-wrap" delay={0.1}>
-              <div className="hero-heading-wrap">
-                <span className="name-large">{profile.name}</span>
-              </div>
-              <div className="hero-name-role">
-                <span className="role-text">{profile.title}</span>
-              </div>
-            </Reveal>
-            <Reveal className="hero-support-wrap" delay={0.15}>
-              <p className="hero-support">Building thoughtful digital experiences.</p>
-            </Reveal>
-            <Reveal className="hero-intro-wrap" delay={0.2}>
-              <p className="hero-intro">{profile.intro}</p>
-            </Reveal>
-            <Reveal className="hero-actions-wrap" delay={0.28}>
-              <div className="hero-actions">
-                <Button variant="primary" size="lg" href="/projects">
-                  Explore Projects
-                </Button>
-                <Button variant="outline" size="lg" href="/about">
-                  About Me
-                </Button>
-                <Button variant="outline" size="lg" href="/contact" className="hero-connect">
-                  Contact Me
-                </Button>
-              </div>
-            </Reveal>
-          </div>
-          <div className="hero-portrait-wrap">
-            <Reveal className="hero-portrait-panel" delay={0.15}>
-              <div className="portrait-frame">
-                <Image
-                  src={profile.photo}
-                  alt={`Professional portrait of ${profile.name}`}
-                  width={560}
-                  height={720}
-                  className="portrait-image"
-                  priority
-                  sizes="(max-width: 640px) 100vw, (max-width: 1023px) 100vw, 400px"
-                />
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-dense featured-work">
+      <CreativeHero />
+      <section className="creative-work" aria-labelledby="selected-work-heading">
         <div className="container">
-          <Reveal className="section-head">
-            <div className="kicker"><span>01</span> Selected work</div>
-            <h2 className="heading-lg">A few things <span className="emph">I’ve built.</span></h2>
-          </Reveal>
-          {featured.map((project, i) => (
-            <Reveal key={project.slug} delay={i * 0.12}>
-              <ProjectCard
-                project={project}
-                variant={i === 0 ? 'featured' : 'default'}
-                panel={i === 0 ? 'large' : 'default'}
-              />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="section section-dense capabilities">
-        <div className="container">
-          <Reveal className="section-head text-center">
-            <div className="kicker"><span>02</span> Technical capability</div>
-            <h2 className="heading-lg text-center">Tools of <span className="emph">the craft.</span></h2>
-          </Reveal>
-          <div className="capability-grid">
-            {['Full-stack applications', 'Modern frontend interfaces', 'Backend systems', 'E-commerce platforms', 'AI-assisted solutions', 'Database design'].map((cap, i) => (
-              <Reveal key={cap} delay={i * 0.06} className="capability-item">
-                <span className="capability-dot" aria-hidden="true" />
-                {cap}
-              </Reveal>
+          <div className="creative-section-heading">
+            <div>
+              <div className="kicker">02 / SELECTED WORK</div>
+              <h2 id="selected-work-heading">Ideas turned into <span className="emph">real products.</span></h2>
+            </div>
+            <p>A selection of web applications built with thoughtful engineering and a commitment to meaningful experiences.</p>
+          </div>
+          <div className="creative-work-grid">
+            {projects.map((project, i) => (
+              <motion.div
+                key={project.slug}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: .15 }}
+                transition={{ duration: .6, delay: i * .09 }}
+              >
+                <ProjectCard project={project} variant={i === 0 ? 'featured' : 'default'} />
+              </motion.div>
             ))}
           </div>
+          <Link className="creative-more" href="/projects">
+            View every project <ArrowUpRight size={17} aria-hidden="true" />
+          </Link>
         </div>
       </section>
-
-      <section className="section contact-strip">
-        <div className="container contact-strip-inner">
-          <Reveal className="contact-strip-copy">
-            <h2 className="heading-md">Ready to start something?</h2>
-            <p>Let’s discuss your project and what we can build together.</p>
-          </Reveal>
-          <Reveal className="contact-strip-action" delay={0.1}>
-            <Button variant="dark" size="lg" href="/contact">
-              Let's Connect
-            </Button>
-          </Reveal>
+      <section className="creative-about" aria-labelledby="creative-about-title">
+        <div className="container">
+          <div className="creative-about-grid">
+            <div>
+              <span className="creative-about-eyebrow">03 / BEYOND THE SCREEN</span>
+              <h2 id="creative-about-title">Good code.<br /><span className="emph">Better ideas.</span></h2>
+            </div>
+            <div>
+              <p className="creative-about-copy">
+                I'm Sudipto Das, a Full Stack Developer who enjoys connecting memorable
+                interfaces with dependable technology. From an e-commerce storefront
+                to AI-powered learning tools, I love making digital products feel intuitive.
+              </p>
+              <Link href="/about">More about me <ArrowUpRight size={18} aria-hidden="true" /></Link>
+            </div>
+          </div>
+          <div className="creative-capabilities">
+            {capabilities.map((item) => <div key={item} className="creative-capability">{item}</div>)}
+          </div>
+        </div>
+      </section>
+      <section className="creative-contact" aria-labelledby="creative-contact-title">
+        <div className="container">
+          <div className="creative-about-eyebrow">04 / START A CONVERSATION</div>
+          <h2 id="creative-contact-title">Have an idea?<br /><span>Let's make it real.</span></h2>
+          <p>Have a project, an interesting challenge, or an opportunity to collaborate? I'd love to hear from you.</p>
+          <Link href="/contact" className="ui-button ui-button--primary ui-button--lg">
+            Start a conversation <ArrowUpRight size={17} aria-hidden="true" />
+          </Link>
         </div>
       </section>
     </>
