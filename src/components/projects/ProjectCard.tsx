@@ -76,13 +76,14 @@ export function ProjectCard({ project, variant = 'default', className }: Project
               </div>
             </div>
             <div className="project-viewport">
-              <Image
+                <Image
                 src={project.image}
                 alt={`${project.name} project preview`}
                 width={isFeatured ? 900 : 560}
                 height={isFeatured ? 720 : 420}
                 className="project-image"
                 priority={isFeatured}
+                quality={100}
                 sizes="(max-width: 640px) 100vw, (max-width: 1023px) 100vw, 33vw"
               />
             </div>

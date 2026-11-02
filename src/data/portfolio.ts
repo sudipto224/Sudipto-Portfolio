@@ -236,11 +236,11 @@ export const portfolioData: PortfolioData = {
       tech: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
       github: 'https://github.com/sudipto224/Modern-ecommerce-platform',
       live: 'https://modern-ecommerce-platform-lac.vercel.app',
-      image: '/images/projects/mehedi-by-meherin.svg',
+      image: '/images/projects/live-screenshots/mehedi-by-meherin/01-storefront-homepage.png',
       gallery: [
-        '/images/projects/mehedi-by-meherin.svg',
-        '/images/projects/mehedi-by-meherin-2.svg',
-        '/images/projects/mehedi-by-meherin-3.svg',
+        '/images/projects/live-screenshots/mehedi-by-meherin/01-storefront-homepage.png',
+        '/images/projects/live-screenshots/mehedi-by-meherin/02-admin-dashboard.png',
+        '/images/projects/live-screenshots/mehedi-by-meherin/03-booking-page.png',
       ],
       featured: true,
       approach:
@@ -268,11 +268,13 @@ export const portfolioData: PortfolioData = {
       tech: ['Laravel', 'React', 'Inertia.js', 'MySQL', 'Groq AI'],
       github: 'https://github.com/sudipto224/AI-based-Smart-Quiz-System',
       live: 'https://ai-based-smart-quiz-system.onrender.com',
-      image: '/images/projects/quizora.svg',
+      image: '/images/projects/live-screenshots/quizora/05-public-homepage.png',
       gallery: [
-        '/images/projects/quizora.svg',
-        '/images/projects/quizora-2.svg',
-        '/images/projects/quizora-3.svg',
+        '/images/projects/live-screenshots/quizora/05-public-homepage.png',
+        '/images/projects/live-screenshots/quizora/01-role-selection.png',
+        '/images/projects/live-screenshots/quizora/02-faculty-dashboard.png',
+        '/images/projects/live-screenshots/quizora/03-student-dashboard.png',
+        '/images/projects/live-screenshots/quizora/04-admin-dashboard.png',
       ],
       featured: true,
       approach:
