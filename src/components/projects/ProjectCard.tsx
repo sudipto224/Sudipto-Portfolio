@@ -113,7 +113,7 @@ export function ProjectCard({ project, variant = 'default', className }: Project
                   aria-label={`GitHub source for ${project.name}`}
                 >
                   <Github size={16} strokeWidth={2} aria-hidden="true" />
-                  Source
+                  GitHub Source
                 </a>
               )}
               {project.live && (
@@ -124,7 +124,7 @@ export function ProjectCard({ project, variant = 'default', className }: Project
                   className="project-btn project-btn--live"
                   aria-label={`Live demo for ${project.name}`}
                 >
-                  Live demo<ExternalLink size={16} strokeWidth={2} aria-hidden="true" />
+                  Live Demo<ExternalLink size={16} strokeWidth={2} aria-hidden="true" />
                 </a>
               )}
             </div>

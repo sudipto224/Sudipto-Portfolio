@@ -4,29 +4,25 @@ import * as React from 'react';
 import { Reveal, Stagger } from '@/components/motion/Reveal';
 import { portfolioData } from '@/data/portfolio';
 import { SkillIcon } from '@/components/ui/SkillIcon';
+import { TechnologyShowcase } from '@/components/sections/TechnologyShowcase';
 
 const { skillsGroups } = portfolioData;
 
 export default function Skills() {
   return (
     <>
-      <section className="page-hero skills-hero">
+      <TechnologyShowcase />
+
+      <section className="section skills-body" aria-labelledby="skills-categories-heading">
         <div className="container">
-          <Reveal className="skills-head">
+          <div className="skills-head" style={{ marginBottom: 40 }}>
             <div className="kicker"><span>03</span> My tools. My craft.</div>
-            <h1 className="heading-xl">Technical <span className="emph">expertise.</span></h1>
-          </Reveal>
-          <Reveal className="skills-lead" delay={0.1}>
+            <h2 id="skills-categories-heading" className="heading-lg">Technical expertise by category</h2>
             <p className="text-lead">
               A precision-driven stack for building scalable, elegant digital products. No invented
               ratings — just the tools I work with.
             </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section skills-body">
-        <div className="container">
+          </div>
           <Stagger className="skills-grid" stagger={0.1}>
             {skillsGroups.map((group) => (
               <Reveal key={group.group} className="skills-group">

@@ -9,20 +9,20 @@ import { portfolioData } from '@/data/portfolio';
 const { profile } = portfolioData;
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sudipto-portfolio-gamma.vercel.app'),
+  metadataBase: new URL('https://sudiptodas.vercel.app'),
   title: {
     template: '%s | Sudipto Das — Full Stack Developer',
     default: 'Sudipto Das — Full Stack Developer',
   },
   description:
     'Sudipto Das is a full stack developer based in Khulna, Bangladesh, building e-commerce platforms, AI-powered tools, and modern web applications.',
-  authors: [{ name: profile.name, url: 'https://sudipto-portfolio-gamma.vercel.app' }],
+  authors: [{ name: profile.name, url: 'https://sudiptodas.vercel.app' }],
   openGraph: {
     title: 'Sudipto Das — Full Stack Developer',
     description:
       'Full-stack web applications, e-commerce and AI integration by Sudipto Das, a full stack developer in Khulna, Bangladesh.',
     type: 'website',
-    url: 'https://sudipto-portfolio-gamma.vercel.app',
+    url: 'https://sudiptodas.vercel.app',
     siteName: 'Sudipto Das — Full Stack Developer',
     images: [{ url: '/sudipto.jpg', width: 863, height: 1101, alt: 'Portrait of Sudipto Das' }],
   },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: ['/sudipto.jpg'],
   },
   alternates: {
-    canonical: 'https://sudipto-portfolio-gamma.vercel.app',
+    canonical: 'https://sudiptodas.vercel.app',
   },
   robots: 'index, follow',
 };
@@ -58,8 +58,8 @@ export default function RootLayout({
               '@type': 'Person',
               name: profile.name,
               jobTitle: profile.title,
-              url: 'https://sudipto-portfolio-gamma.vercel.app',
-              image: 'https://sudipto-portfolio-gamma.vercel.app/sudipto.jpg',
+              url: 'https://sudiptodas.vercel.app',
+              image: 'https://sudiptodas.vercel.app/sudipto.jpg',
               email: profile.email,
               telephone: profile.phone,
               address: {

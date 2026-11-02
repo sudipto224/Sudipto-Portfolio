@@ -25,7 +25,7 @@ export default function Contact() {
   const [formErrors, setFormErrors] = useState<{ name?: string; email?: string; subject?: string; message?: string }>({});
 
   const handleSubmit = useCallback(
-    (event: React.FormEvent) => {
+    async (event: React.FormEvent) => {
       event.preventDefault();
       const form = event.currentTarget as HTMLFormElement;
       const formData = new FormData(form);
@@ -33,6 +33,7 @@ export default function Contact() {
       const email = (formData.get('email') as string).trim();
       const subject = (formData.get('subject') as string).trim();
       const message = (formData.get('message') as string).trim();
+      const honeypot = (formData.get('hp') as string).trim();
 
       const errors: { name?: string; email?: string; subject?: string; message?: string } = {};
       if (!name) errors.name = 'Full name is required.';
@@ -42,28 +43,31 @@ export default function Contact() {
       if (!message) errors.message = 'Message is required.';
 
       setFormErrors(errors);
-      if (Object.keys(errors).length > 0) return;
+      if (Object.keys(errors).length > 0 || honeypot !== '') return;
 
       setFormStatus('submitting');
 
-      const body = [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Subject: ${subject}`,
-        '',
-        message,
-      ].join('\n');
-
-      const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
       try {
-        window.location.href = mailtoUrl;
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, subject, message }),
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          setFormStatus('error');
+          return;
+        }
+
         setFormStatus('success');
+        form.reset();
       } catch {
         setFormStatus('error');
       }
     },
-    [profile.email],
+    [],
   );
 
   return (
@@ -202,6 +206,11 @@ export default function Contact() {
                   />
                   {formErrors.message && <span id="message-error" className="form-error">{formErrors.message}</span>}
                 </div>
+                {/* Honeypot field for basic spam protection. Hidden from users. */}
+                <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
+                  <label htmlFor="hp">Please leave this field empty.</label>
+                  <input id="hp" name="hp" type="text" tabIndex={-1} autoComplete="off" />
+                </div>
                 <button
                   type="submit"
                   className="form-btn"
@@ -213,13 +222,13 @@ export default function Contact() {
               {formStatus === 'success' && (
                 <div className="form-message form-message--success" role="status" aria-live="polite">
                   <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
-                  Your message is ready to send — your email client has opened with the details filled in.
+                  Your message has been sent successfully. I&rsquo;ll get back to you soon.
                 </div>
               )}
               {formStatus === 'error' && (
                 <div className="form-message form-message--error" role="status" aria-live="polite">
-                  Unable to open your email client. You can message me directly at{' '}
-                  <a href={`mailto:${profile.email}`}>{profile.email}</a> or on WhatsApp.
+                  Unable to send your message. Please try again, or email me directly at{' '}
+                  <a href={`mailto:${profile.email}`}>{profile.email}</a>.
                 </div>
               )}
             </Reveal>

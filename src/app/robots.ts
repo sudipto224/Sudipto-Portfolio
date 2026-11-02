@@ -6,6 +6,6 @@ export default function robots() {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://sudipto-portfolio-gamma.vercel.app/sitemap.xml',
+    sitemap: 'https://sudiptodas.vercel.app/sitemap.xml',
   };
 }

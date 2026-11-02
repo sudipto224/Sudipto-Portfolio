@@ -15,6 +15,7 @@ export type Project = {
   featured: boolean;
   approach: string;
   features: string[];
+  challenges: { title: string; description: string; solution: string }[];
 };
 
 export type Certification = {
@@ -202,23 +203,23 @@ export const portfolioData: PortfolioData = {
     {
       degree: 'B.Sc. in Computer Science & Engineering',
       institution: 'Northern University of Business & Technology Khulna',
-      period: 'Expected December 2026',
+      period: '2026',
       description:
-        'CGPA: 3.67 / 4.00. Final result pending, expected December 2026.',
+        'CGPA 3.67 / 4.00.',
     },
     {
       degree: 'Higher Secondary Certificate (HSC)',
       institution: 'Khan Jahan Ali College, Bagerhat',
-      period: 'GPA: 5.00 / 5.00',
+      period: '2020',
       description:
-        'Science group. Completed with a perfect GPA of 5.00 out of 5.00.',
+        'GPA 5.00 / 5.00.',
     },
     {
       degree: 'Secondary School Certificate (SSC)',
-      institution: 'Bagerhat Govt. High School, Bagerhat',
-      period: 'GPA: 4.56 / 5.00',
+      institution: 'Bagerhat Government High School, Bagerhat',
+      period: '2018',
       description:
-        'Completed with a GPA of 4.56 out of 5.00.',
+        'GPA 4.56 / 5.00.',
     },
   ],
   projects: [
@@ -235,7 +236,7 @@ export const portfolioData: PortfolioData = {
       role: 'Full-Stack Development',
       tech: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
       github: 'https://github.com/sudipto224/Modern-ecommerce-platform',
-      live: 'https://modern-ecommerce-platform-lac.vercel.app',
+      live: 'https://mehedi-by-meherin.vercel.app/',
       image: '/images/projects/live-screenshots/mehedi-by-meherin/01-storefront-homepage.png',
       gallery: [
         '/images/projects/live-screenshots/mehedi-by-meherin/01-storefront-homepage.png',
@@ -252,6 +253,18 @@ export const portfolioData: PortfolioData = {
         'Admin dashboard for orders and products',
         'Responsive mobile experience',
         'Supabase authentication and database',
+      ],
+      challenges: [
+        {
+          title: 'Keeping bookings available in real time',
+          description: 'Multiple customers could request the same appointment slot, risking double bookings.',
+          solution: 'A Supabase-backed bookings table with server-side validation and timezone-normalized timestamps prevents overlapping appointments.',
+        },
+        {
+          title: 'Syncing inventory between storefront and admin',
+          description: 'Product stock had to stay consistent across the customer storefront and the admin dashboard.',
+          solution: 'Typed Supabase clients with real-time subscriptions keep inventory and order status in sync across interfaces.',
+        },
       ],
     },
     {
@@ -289,6 +302,18 @@ export const portfolioData: PortfolioData = {
         'Student self-practice quizzes',
         'Role-based authentication',
       ],
+      challenges: [
+        {
+          title: 'AI-generated question quality and consistency',
+          description: 'AI-generated MCQs could be vague, inaccurate, or inconsistent across topics.',
+          solution: 'Structured Groq prompts with schema validation plus a teacher review workflow before questions go live.',
+        },
+        {
+          title: 'Timed assessments across roles without client clock tampering',
+          description: 'Quiz timers must not depend on the user device clock, which can be changed.',
+          solution: 'Server-validated start and end timestamps, with assessment state stored on the backend and checked on submission.',
+        },
+      ],
     },
     {
       id: 'single-society',
@@ -319,6 +344,18 @@ export const portfolioData: PortfolioData = {
         'Image upload and customization',
         'PNG download export',
         'Dynamic, responsive interface',
+      ],
+      challenges: [
+        {
+          title: 'High-quality client-side PNG export',
+          description: 'Exporting the interactive crest as a PNG can lose quality or fail across browsers.',
+          solution: 'Used html-to-image with deterministic rendering and a reliable fallback so downloads work consistently.',
+        },
+        {
+          title: 'Keeping the creative experience lightweight',
+          description: 'A playful interactive app can easily become heavy and slow to load.',
+          solution: 'Built as a single-page Vite application with minimal dependencies and no backend, keeping it fast and portable.',
+        },
       ],
     },
   ],

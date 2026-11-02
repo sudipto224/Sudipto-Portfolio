@@ -52,7 +52,7 @@ export default function CreativeHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.09 }}
               >
-                Building Digital Products
+                Building Digital Experiences
               </motion.span>
               <motion.span
                 className="outline-line"

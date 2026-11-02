@@ -1,6 +1,6 @@
 import { getAllProjects, portfolioData } from '@/data/portfolio';
 
-const baseUrl = 'https://sudipto-portfolio-gamma.vercel.app';
+const baseUrl = 'https://sudiptodas.vercel.app';
 
 const routes = ['', '/about', '/projects', '/skills', '/services', '/journey', '/contact'];
 
