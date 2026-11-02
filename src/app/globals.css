@@ -1,62 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
   color-scheme: light;
-  --bg: #FAF9F6;
-  --bg-alt: #F2F0E8;
+  --bg: #F7F8FC;
+  --bg-alt: #F0F2F6;
   --surface: #FFFFFF;
-  --surface-hover: #EAE8DC;
-  --text: #1A1816;
-  --text-strong: #0F0E0D;
-  --muted: #6E6A62;
-  --muted-soft: #9B968C;
-  --accent: #0E7C6B;
-  --accent-hover: #0B5F53;
-  --accent-soft: rgba(14, 124, 107, 0.10);
-  --border: #D9D6CE;
-  --border-soft: #EDE9DD;
-  --ink-on-dark: #F8F8F5;
-  --ink-on-dark-rgb: 248, 248, 245;
-  --dark: #13110E;
-  --dark-soft: #1D1A15;
-  --bg-rgb: 250, 249, 246;
+  --surface-hover: #F4F6F9;
+  --text: #101828;
+  --text-strong: #0B1020;
+  --muted: #667085;
+  --muted-soft: #8E97A3;
+  --accent: #087F73;
+  --accent-hover: #066A5E;
+  --accent-soft: rgba(8, 127, 115, 0.10);
+  --accent2: #8B7CFF;
+  --accent2-soft: rgba(139, 124, 255, 0.10);
+  --border: #D9DEE7;
+  --border-soft: #E8EAEF;
+  --ink-on-dark: #101828;
+  --ink-on-dark-rgb: 16, 24, 40;
+  --dark: #0B1020;
+  --dark-soft: #161E30;
+  --bg-rgb: 247, 248, 252;
   --surface-rgb: 255, 255, 255;
-  --dark-rgb: 19, 17, 14;
-  --accent-rgb: 14, 124, 107;
-  --border-rgb: 217, 214, 206;
-  --text-strong-rgb: 15, 14, 13;
+  --dark-rgb: 11, 16, 32;
+  --accent-rgb: 8, 127, 115;
+  --border-rgb: 217, 222, 231;
+  --text-strong-rgb: 11, 16, 32;
   --radius: 16px;
-  --shadow: 0 24px 64px -14px rgba(15, 14, 13, 0.07);
-  --shadow-strong: 0 40px 110px -24px rgba(15, 14, 13, 0.14);
+  --shadow: 0 24px 64px -14px rgba(11, 16, 32, 0.08);
+  --shadow-strong: 0 40px 110px -24px rgba(11, 16, 32, 0.14);
   --transition: 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg: #070a10;
-  --bg-alt: #0c1019;
-  --surface: #121824;
-  --surface-hover: #1a2533;
-  --text: #d6dfec;
-  --text-strong: #f8fbff;
-  --muted: #9baabd;
-  --muted-soft: #77899e;
-  --accent: #9cf7d2;
-  --accent-hover: #bdffe7;
-  --accent-soft: rgba(156, 247, 210, 0.12);
-  --border: rgba(190, 220, 246, 0.2);
-  --border-soft: rgba(190, 220, 246, 0.1);
-  --ink-on-dark: #f7fbff;
-  --ink-on-dark-rgb: 247, 251, 255;
-  --dark: #070a10;
-  --dark-soft: #101621;
-  --bg-rgb: 7, 10, 16;
-  --surface-rgb: 18, 24, 36;
-  --dark-rgb: 7, 10, 16;
-  --accent-rgb: 156, 247, 210;
-  --border-rgb: 190, 220, 246;
-  --text-strong-rgb: 248, 251, 255;
-  --radius: 22px;
+  --bg: #0B1020;
+  --bg-alt: #111A2E;
+  --surface: #151F33;
+  --surface-hover: #1B273E;
+  --text: #F5F7FB;
+  --text-strong: #FFFFFF;
+  --muted: #A8B3C7;
+  --muted-soft: #7E8BA0;
+  --accent: #19C6A0;
+  --accent-hover: #0FA386;
+  --accent-soft: rgba(25, 198, 160, 0.10);
+  --accent2: #8B7CFF;
+  --accent2-soft: rgba(139, 124, 255, 0.10);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(255, 255, 255, 0.04);
+  --ink-on-dark: #F5F7FB;
+  --ink-on-dark-rgb: 245, 247, 251;
+  --dark: #0B1020;
+  --dark-soft: #12192E;
+  --bg-rgb: 11, 16, 32;
+  --surface-rgb: 21, 31, 51;
+  --dark-rgb: 11, 16, 32;
+  --accent-rgb: 25, 198, 160;
+  --border-rgb: 255, 255, 255;
+  --text-strong-rgb: 255, 255, 255;
+  --radius: 16px;
   --shadow: 0 25px 80px -28px rgba(0, 0, 0, 0.72);
   --shadow-strong: 0 34px 100px -22px rgba(0, 0, 0, 0.85);
 }
@@ -76,7 +79,7 @@ body {
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -86,9 +89,21 @@ body {
 
 [data-theme="dark"] body {
   background:
-    radial-gradient(ellipse 60% 37% at 87% 7%, rgba(70, 111, 184, 0.15), transparent 78%),
-    radial-gradient(ellipse 35% 24% at 2% 33%, rgba(65, 175, 150, 0.09), transparent 82%),
+    radial-gradient(ellipse 60% 37% at 87% 7%, rgba(25, 198, 160, 0.10), transparent 78%),
+    radial-gradient(ellipse 35% 24% at 2% 33%, rgba(139, 124, 255, 0.07), transparent 82%),
     var(--bg);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background:
+    radial-gradient(ellipse 70% 50% at 90% 10%, rgba(8, 127, 115, 0.06), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 10% 90%, rgba(139, 124, 255, 0.05), transparent 60%);
 }
 
 ::selection {
@@ -120,7 +135,7 @@ img {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -0.02em;
@@ -311,8 +326,8 @@ p {
 .inset-0 { inset: 0; }
 .block { display: block; }
 .inline-block { display: inline-block; }
-.font-inter { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-.font-display { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+.font-inter { font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+.font-display { font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 .text-sm { font-size: 14px; }
 .text-lg { font-size: 18px; }
 .text-xl { font-size: 20px; }
@@ -490,7 +505,7 @@ p {
   border-bottom: 1px solid rgba(var(--ink-on-dark-rgb, 255, 255, 255), 0.08);
 }
 .mobile-brand {
-  font-family: 'Space Grotesk', Georgia, serif;
+  font-family: var(--font-space-grotesk), Georgia, serif;
   font-size: 19px;
   font-weight: 600;
   color: var(--ink-on-dark);
@@ -595,7 +610,7 @@ p {
   gap: 24px;
   align-items: start;
 }
-.footer-brand .brand { font-family: 'Space Grotesk', Georgia, serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+.footer-brand .brand { font-family: var(--font-space-grotesk), Georgia, serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
 .footer-role {
   font-size: 14px;
   font-weight: 600;
@@ -714,7 +729,7 @@ p {
 }
 .hero-name-role { margin: 16px 0 14px; display: flex; flex-direction: column; gap: 6px; }
 .name-large {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(44px, 7vw, 72px);
   font-weight: 700;
   line-height: 1.02;
@@ -923,7 +938,7 @@ p {
   display: block;
 }
 .project-title {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 19px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -1066,7 +1081,7 @@ p {
 }
 .contact-strip-copy { max-width: 540px; }
 .contact-strip-copy h2 {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(28px, 4vw, 40px);
   line-height: 1.12;
   letter-spacing: -0.02em;
@@ -1117,7 +1132,7 @@ p {
   color: var(--ink-on-dark);
 }
 .portrait-label span:first-child {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -1133,7 +1148,7 @@ p {
 [data-theme="dark"] .portrait-label span:last-child { color: var(--muted-soft); }
 .about-details { margin-top: 40px; }
 .details-title {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 18px;
@@ -1155,7 +1170,7 @@ p {
   margin: 0;
 }
 .about-copy h2 {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 26px;
   margin: 0 0 10px;
   color: var(--text-strong);
@@ -1179,7 +1194,7 @@ p {
   background: var(--surface);
 }
 .connect-copy h2 {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 27px;
   margin: 0 0 8px;
   color: var(--text-strong);
@@ -1219,7 +1234,7 @@ p {
   flex-direction: column;
 }
 .cert-body h3 {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 20px;
   font-weight: 600;
   margin: 0 0 6px;
@@ -1311,7 +1326,7 @@ p {
   color: var(--text);
 }
 .cert-modal-info h2 {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 24px;
   margin: 0 0 14px;
   color: var(--text-strong);
@@ -1361,7 +1376,7 @@ p {
 }
 .why-icon > * { color: var(--accent); }
 .why-item h4 {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 17px;
   font-weight: 600;
   margin: 0;
@@ -1405,7 +1420,7 @@ p {
   color: var(--muted-soft);
 }
 .skills-group-title {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -1552,7 +1567,7 @@ p {
   margin: 0 0 16px;
 }
 .project-hero-title {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(34px, 5vw, 56px);
   line-height: 1.06;
   letter-spacing: -0.03em;
@@ -1714,7 +1729,7 @@ p {
 }
 .editorial-section { margin-bottom: 48px; }
 .section-heading {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(26px, 3.4vw, 40px);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -1842,7 +1857,7 @@ p {
   gap: 14px;
 }
 .card-heading {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 19px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -2007,7 +2022,7 @@ p {
   margin: 2px 0 6px;
 }
 .timeline-title {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 21px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -2068,7 +2083,7 @@ p {
   background: var(--surface);
 }
 .contact-info-card h2 {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 26px;
   margin: 0 0 12px;
   color: var(--text-strong);
@@ -2115,7 +2130,7 @@ p {
   background: var(--surface);
 }
 .contact-social-card h2 {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 26px;
   margin: 0 0 12px;
   color: var(--text-strong);
@@ -2558,7 +2573,7 @@ p {
   color: #d1f8e8;
 }
 .case-study-copy h3 {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 17px;
   font-weight: 600;
   margin: 0 0 6px;
@@ -2576,7 +2591,7 @@ p {
   gap: 40px;
 }
 .case-study-group-title {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.16em;

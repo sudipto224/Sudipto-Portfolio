@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import './creative.css';
+import { inter, spaceGrotesk } from '@/lib/fonts';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { portfolioData } from '@/data/portfolio';
@@ -85,7 +86,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
         <Header />
         <main>{children}</main>
         <Footer />

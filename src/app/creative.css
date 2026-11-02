@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
 .ui-button {
   display: inline-flex; align-items: center; justify-content: center; gap: 14px;
   width: fit-content; min-height: 50px; padding: 13px 23px; border-radius: 999px;
-  border: 1px solid transparent; font-family: 'Inter', sans-serif;
+  border: 1px solid transparent; font-family: var(--font-inter), sans-serif;
   font-size: 14px; line-height: 1.1; font-weight: 700;
   transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   background: rgba(var(--accent-rgb), 0.08);
 }
 .creative-identity-name {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(26px, 3.6vw, 40px);
   font-weight: 700;
   line-height: 1.05;
@@ -171,7 +171,7 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   align-items: center;
   justify-content: center;
 }
-.creative-light { position: absolute; inset: 13% -10% 3%; border-radius: 50%; background: radial-gradient(ellipse, rgba(104, 192, 185, 0.3), rgba(51, 77, 153, 0.14) 43%, transparent 69%); filter: blur(38px); }
+.creative-light { position: absolute; inset: 13% -10% 3%; border-radius: 50%; background: radial-gradient(ellipse, rgba(var(--accent-rgb), 0.3), rgba(var(--dark-rgb), 0.14) 43%, transparent 69%); filter: blur(38px); }
 .creative-orbit { position: absolute; inset: 9% 0%; border: 1px solid rgba(var(--accent-rgb), 0.21); border-radius: 50%; transform: rotate(-22deg) rotateY(62deg); pointer-events: none; }
 .creative-orbit.orbit-two { inset: 4% 3%; transform: rotate(41deg) rotateY(65deg); border-color: rgba(var(--accent-rgb), 0.23); }
 .creative-orbit.orbit-three { inset: 12% -2%; transform: rotate(90deg) rotateY(67deg); border-color: rgba(var(--accent-rgb), 0.14); }
@@ -242,7 +242,7 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   padding-top: 24px;
 }
 .education-title {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.2em;
@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   gap: 12px;
 }
 .education-degree {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: var(--text-strong);
@@ -366,7 +366,7 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   display: block;
 }
 .technology-heading {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(40px, 5.5vw, 72px);
   line-height: 1.05;
   letter-spacing: -0.04em;
