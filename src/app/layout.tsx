@@ -4,6 +4,9 @@ import './globals.css';
 import './creative.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { portfolioData } from '@/data/portfolio';
+
+const { profile } = portfolioData;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sudipto-portfolio-gamma.vercel.app'),
@@ -13,12 +16,25 @@ export const metadata: Metadata = {
   },
   description:
     'Sudipto Das is a full stack developer based in Khulna, Bangladesh, building e-commerce platforms, AI-powered tools, and modern web applications.',
+  authors: [{ name: profile.name, url: 'https://sudipto-portfolio-gamma.vercel.app' }],
   openGraph: {
     title: 'Sudipto Das — Full Stack Developer',
     description:
       'Full-stack web applications, e-commerce and AI integration by Sudipto Das, a full stack developer in Khulna, Bangladesh.',
     type: 'website',
+    url: 'https://sudipto-portfolio-gamma.vercel.app',
+    siteName: 'Sudipto Das — Full Stack Developer',
     images: [{ url: '/sudipto.jpg', width: 863, height: 1101, alt: 'Portrait of Sudipto Das' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sudipto Das — Full Stack Developer',
+    description:
+      'Sudipto Das is a full stack developer based in Khulna, Bangladesh, building e-commerce platforms, AI-powered tools, and modern web applications.',
+    images: ['/sudipto.jpg'],
+  },
+  alternates: {
+    canonical: 'https://sudipto-portfolio-gamma.vercel.app',
   },
   robots: 'index, follow',
 };
@@ -33,6 +49,41 @@ export default function RootLayout({
         <Script id="theme-init" strategy="beforeInteractive">
           {`(function(){try{const t=localStorage.getItem('portfolio-theme');const d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:d?'dark':'light')}catch(e){}})()`}
         </Script>
+        <Script
+          id="portfolio-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: profile.name,
+              jobTitle: profile.title,
+              url: 'https://sudipto-portfolio-gamma.vercel.app',
+              image: 'https://sudipto-portfolio-gamma.vercel.app/sudipto.jpg',
+              email: profile.email,
+              telephone: profile.phone,
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Khulna',
+                addressCountry: 'Bangladesh',
+              },
+              knowsAbout: [
+                'Full-stack web development',
+                'E-commerce platforms',
+                'REST APIs',
+                'AI integration',
+                'Next.js',
+                'React',
+                'Laravel',
+              ],
+              sameAs: [
+                'https://github.com/sudipto224/',
+                'https://www.linkedin.com/in/sudipto-das-7b3a4327a/',
+                'https://wa.me/8801701054096',
+              ],
+            }),
+          }}
+        />
       </head>
       <body>
         <Header />

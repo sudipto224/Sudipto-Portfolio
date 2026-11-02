@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Reveal, Stagger } from '@/components/motion/Reveal';
@@ -14,6 +14,14 @@ export default function About() {
 
   const openCert = useCallback(() => setCertOpen(true), []);
   const closeCert = useCallback(() => setCertOpen(false), []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (certOpen && event.key === 'Escape') closeCert();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [certOpen, closeCert]);
 
   return (
     <>

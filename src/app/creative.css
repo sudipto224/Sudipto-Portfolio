@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   right: -28%; top: -48%; z-index: -1; border-radius: 50%;
   background: radial-gradient(circle, rgba(var(--accent-rgb), 0.17) 0%, rgba(var(--dark-rgb), 0.08) 43%, transparent 72%);
 }
-.creative-grid { display: grid; grid-template-columns: minmax(0, 1.13fr) minmax(0, 0.87fr); align-items: center; gap: clamp(25px, 4vw, 80px); }
+.creative-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(25px, 4vw, 80px); }
 .creative-eyebrow { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--accent); letter-spacing: 0.24em; text-transform: uppercase; font-weight: 700; margin-bottom: 26px; }
 .creative-live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0.1); }
 .creative-hero h1 { font-size: clamp(54px, 6.5vw, 106px); font-weight: 600; line-height: 0.99; letter-spacing: -0.079em; color: var(--text-strong); max-width: 910px; margin: 0; }
@@ -107,8 +107,8 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   align-items: center;
   text-align: center;
   gap: 8px;
-  margin-top: 26px;
-  width: 100%;
+  min-width: 0;
+  max-width: 250px;
 }
 .creative-identity-badge {
   display: inline-flex;
@@ -148,8 +148,29 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   margin-top: 8px;
 }
 
-.creative-art { position: relative; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: min(640px, 51vw); min-height: 470px; perspective: 1100px; }
-.creative-art-stage { position: relative; width: min(100%, 500px); height: min(100%, 570px); transform-style: preserve-3d; }
+.creative-art {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 3vw, 34px);
+  height: min(560px, 44vw);
+  min-height: 400px;
+  perspective: 1100px;
+}
+.creative-art-stage {
+  position: relative;
+  width: 280px;
+  max-width: 100%;
+  aspect-ratio: 3 / 4;
+  min-width: 0;
+  flex-shrink: 1;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .creative-light { position: absolute; inset: 13% -10% 3%; border-radius: 50%; background: radial-gradient(ellipse, rgba(104, 192, 185, 0.3), rgba(51, 77, 153, 0.14) 43%, transparent 69%); filter: blur(38px); }
 .creative-orbit { position: absolute; inset: 9% 0%; border: 1px solid rgba(var(--accent-rgb), 0.21); border-radius: 50%; transform: rotate(-22deg) rotateY(62deg); pointer-events: none; }
 .creative-orbit.orbit-two { inset: 4% 3%; transform: rotate(41deg) rotateY(65deg); border-color: rgba(var(--accent-rgb), 0.23); }
@@ -287,7 +308,9 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   .mobile-toggle { display: grid; place-items: center; }
   .creative-grid { grid-template-columns: 1fr; }
   .creative-hero h1 { font-size: clamp(58px, 10vw, 95px); }
-  .creative-art { width: min(540px, 100%); height: 520px; margin: auto; min-height: 0; }
+  .creative-art { flex-direction: column; width: min(540px, 100%); height: auto; min-height: 0; margin: auto; }
+  .creative-art-stage { width: min(340px, 92%); height: auto; }
+  .creative-identity { max-width: none; margin-top: 18px; }
   .creative-about-grid { grid-template-columns: 1fr; }
   .creative-work-grid { grid-template-columns: 1fr; }
   .creative-work-grid > :first-child { grid-column: auto; }
@@ -302,8 +325,8 @@ h1, h2, h3, h4, h5, h6, .heading-xl, .heading-lg, .heading-md, .heading-sm {
   .creative-hero h1 { font-size: clamp(49px, 12vw, 71px); letter-spacing: -0.075em; }
   .creative-description { font-size: 15px; }
   .creative-ctas { gap: 10px; }
-  .creative-art { height: 405px; width: 100%; }
-  .creative-art-stage { height: 400px; width: min(95%, 360px); }
+  .creative-art { flex-direction: column; height: auto; width: 100%; min-height: 0; }
+  .creative-art-stage { width: min(340px, 92%); height: auto; }
   .creative-portrait-shell { inset: 8% 10% 4%; }
   .creative-floating-chip { padding: 10px 12px; }
   .creative-chip-top { left: 0; }
