@@ -5,6 +5,10 @@ import Image from 'next/image';
 import { getProjectBySlug, getAllProjects } from '@/data/portfolio';
 import { ProjectScreenshotGallery } from '@/components/projects/ProjectScreenshotGallery';
 
+type ProjectPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
 type CaseStudyImage = {
   src: string;
   alt: string;
@@ -15,7 +19,7 @@ export async function generateStaticParams() {
   return getAllProjects().map((project) => ({ slug: project.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return { title: 'Project not found' };
@@ -31,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ProjectDetail({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
