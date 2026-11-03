@@ -91,7 +91,7 @@ export const portfolioData: PortfolioData = {
     email: 'sudiptodas8900@gmail.com',
     phone: '+880 1701-054096',
     whatsapp: 'https://wa.me/8801701054096',
-    cv: '/documents/Sudipto_Das_Professional_CV.pdf',
+    cv: '/documents/Sudipto_Das_CV.pdf',
     certification: {
       title: 'Laravel 1-Month Industrial Training Program',
       organization: 'Appstick',
