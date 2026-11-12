@@ -374,6 +374,7 @@ export const portfolioData: PortfolioData = {
       role: 'Frontend Web Development',
       tech: ['React', 'Vite', 'JavaScript', 'Tailwind CSS'],
       repoUrl: 'https://github.com/sudipto224/Singlesociety',
+      liveUrl: 'https://singlesociety.vercel.app/',
       github: 'https://github.com/sudipto224/Singlesociety',
       live: 'https://singlesociety.vercel.app',
       image: '/images/projects/single-society.svg',
