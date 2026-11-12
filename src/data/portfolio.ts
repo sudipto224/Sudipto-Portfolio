@@ -278,6 +278,7 @@ export const portfolioData: PortfolioData = {
       role: 'Full-Stack Development',
       tech: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
       repoUrl: 'https://github.com/sudipto224/Modern-ecommerce-platform',
+      liveUrl: 'https://mehedi-by-meherin.vercel.app/',
       github: 'https://github.com/sudipto224/Modern-ecommerce-platform',
       live: 'https://mehedi-by-meherin.vercel.app/',
       image: '/images/projects/live-screenshots/mehedi-by-meherin/01-storefront-homepage.png',
