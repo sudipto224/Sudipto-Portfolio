@@ -30,11 +30,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       whileHover={{ y: -6 }}
       className="group relative overflow-hidden rounded-2xl glass-strong flex flex-col h-full transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.5)]"
     >
-      <div className="relative h-60 w-full overflow-hidden">
+      <div className="relative h-80 w-full overflow-hidden">
         <img
           src={project.image}
           alt={`${project.name} project preview`}
-          className="w-full h-60 object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-80 object-cover rounded-t-xl group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
         <span className="absolute left-4 top-4 z-10 px-3 py-1 rounded-full border border-white/20 bg-black/60 text-[10px] font-bold tracking-wider text-brand-400 uppercase">
