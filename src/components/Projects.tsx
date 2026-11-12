@@ -27,8 +27,7 @@ export default function Projects() {
               Featured <span className="text-brand-400 italic">projects.</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              A curated selection of what I&rsquo;ve built — full-stack platforms, AI-powered tools,
-              and creative web experiences.
+              Four projects — a turf booking system, an e-commerce platform, an AI quiz system, and a creative crest generator.
             </p>
           </motion.div>
         </div>

@@ -8,6 +8,8 @@ export type Project = {
   overview: string;
   role: string;
   tech: string[];
+  liveUrl?: string;
+  repoUrl?: string;
   github: string;
   live: string;
   image: string;
@@ -224,6 +226,46 @@ export const portfolioData: PortfolioData = {
   ],
   projects: [
     {
+      id: 'khulna-turf',
+      slug: 'khulna-turf',
+      name: 'Khulna Turf — Booking & Management System',
+      category: 'Full-Stack Booking Platform',
+      period: '2026 — Present',
+      description: 'A complete booking website and owner admin dashboard for Khulna Turf, a floodlit football/cricket turf in Gollamari, Khulna. Customers browse the ground, book 90-minute slots and pay 50% in advance; the owner manages bookings, blocks slots for maintenance, and edits prices from the admin panel. Bookings are stored in Supabase, so a booking made on a customer\'s phone appears in the owner\'s dashboard immediately.',
+      overview: 'Khulna Turf is a full-stack booking and management platform for a floodlit football/cricket turf. It features customer slot booking with advance payment and an owner admin dashboard for managing bookings, blocking maintenance slots, and editing prices, all powered by Supabase.',
+      role: 'Full-Stack Development',
+      tech: ['Next.js 16', 'React 19', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Vercel'],
+      liveUrl: 'https://khulna-turf-inky.vercel.app/',
+      repoUrl: 'https://github.com/sudipto224/khulna-turf',
+      github: 'https://github.com/sudipto224/khulna-turf',
+      live: 'https://khulna-turf-inky.vercel.app/',
+      image: '/images/projects/live-screenshots/khulna-turf/01-booking-homepage.png',
+      gallery: [
+        '/images/projects/live-screenshots/khulna-turf/01-booking-homepage.png',
+        '/images/projects/live-screenshots/khulna-turf/02-owner-dashboard.png',
+      ],
+      featured: true,
+      approach: 'A Next.js 16 frontend with React 19 and Supabase handling the backend, database, and authentication. Customer bookings sync in real time to the owner dashboard via Supabase Realtime and Row Level Security.',
+      features: [
+        '90-minute slot booking with 50% advance payment',
+        'Supabase Auth + Row Level Security',
+        'Owner admin dashboard for bookings and pricing',
+        'Live on Vercel',
+      ],
+      challenges: [
+        {
+          title: 'Real-time booking sync across devices',
+          description: 'A booking made on a customer\'s phone must appear in the owner\'s dashboard immediately.',
+          solution: 'Supabase Realtime subscriptions combined with Row Level Security keep customer and owner views in sync without polling.',
+        },
+        {
+          title: 'Preventing double bookings on the same slot',
+          description: 'Multiple customers could book the same 90-minute slot concurrently.',
+          solution: 'Server-side validation and timezone-normalized timestamps in Supabase prevent overlapping appointment bookings.',
+        },
+      ],
+    },
+    {
       id: 'mehedi-by-meherin',
       slug: 'mehedi-by-meherin',
       name: 'Mehedi By Meherin',
@@ -235,6 +277,7 @@ export const portfolioData: PortfolioData = {
         'Mehedi By Meherin is a full-stack e-commerce and booking platform built around henna and mehndi experiences. It combines a product storefront with appointment booking, letting visitors discover designs, purchase essentials, and request personal bookings through one interface.',
       role: 'Full-Stack Development',
       tech: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
+      repoUrl: 'https://github.com/sudipto224/Modern-ecommerce-platform',
       github: 'https://github.com/sudipto224/Modern-ecommerce-platform',
       live: 'https://mehedi-by-meherin.vercel.app/',
       image: '/images/projects/live-screenshots/mehedi-by-meherin/01-storefront-homepage.png',
@@ -279,6 +322,8 @@ export const portfolioData: PortfolioData = {
         'Quizora is an AI-powered online assessment platform developed as a university team project. Teachers generate AI-assisted MCQs from topics or uploaded PDF/PPTX materials, run timed quizzes, and track results on course leaderboards, while students can independently generate personal practice quizzes.',
       role: 'Team Leader & Backend Developer · University team project',
       tech: ['Laravel', 'React', 'Inertia.js', 'MySQL', 'Groq AI'],
+      liveUrl: 'https://ai-based-smart-quiz-system.onrender.com',
+      repoUrl: 'https://github.com/sudipto224/AI-based-Smart-Quiz-System',
       github: 'https://github.com/sudipto224/AI-based-Smart-Quiz-System',
       live: 'https://ai-based-smart-quiz-system.onrender.com',
       image: '/images/projects/live-screenshots/quizora/05-public-homepage.png',
@@ -327,6 +372,7 @@ export const portfolioData: PortfolioData = {
         'Bangladesh Single Society is a creative interactive web application built with React, Vite, and Tailwind CSS. Users complete a playful form, receive a personalized award crest, and can download the result as a PNG image. It is a frontend-focused creative project, not a full-stack application.',
       role: 'Frontend Web Development',
       tech: ['React', 'Vite', 'JavaScript', 'Tailwind CSS'],
+      repoUrl: 'https://github.com/sudipto224/Singlesociety',
       github: 'https://github.com/sudipto224/Singlesociety',
       live: 'https://singlesociety.vercel.app',
       image: '/images/projects/single-society.svg',

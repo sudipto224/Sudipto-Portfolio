@@ -56,28 +56,32 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </span>
           ))}
         </div>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className={cn('px-3 py-1.5 rounded-full border text-[10px] font-medium uppercase tracking-wider transition-colors', 'bg-cyan-500/10 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20')}
+            >
+              Live Demo <ArrowRight size={14} strokeWidth={2} stroke="currentColor" fill="none" />
+            </a>
+          )}
+          {project.repoUrl && (
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className={cn('px-3 py-1.5 rounded-full border text-[10px] font-medium uppercase tracking-wider transition-colors', 'bg-cyan-500/10 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20')}
+            >
+              <Github size={14} strokeWidth={2} stroke="currentColor" fill="none" /> GitHub
+            </a>
+          )}
+        </div>
         <h3 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-brand-400 transition-colors">
           {project.name}
         </h3>
         <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 mb-6">{project.description}</p>
-        <div className="flex items-center justify-between gap-4 pt-4 border-t border-white/5">
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-400 hover:text-brand-300 transition-colors"
-          >
-            Live Demo <ArrowRight size={15} strokeWidth={2} stroke="currentColor" fill="none" />
-          </a>
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:text-brand-400 transition-colors"
-          >
-            <Github size={15} strokeWidth={2} stroke="currentColor" fill="none" /> GitHub
-          </a>
-        </div>
       </div>
     </motion.div>
   );
