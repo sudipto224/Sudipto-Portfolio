@@ -59,8 +59,8 @@ export default function Navbar() {
             </div>
             <div className="flex items-center gap-3">
               <a
-                href={profile.cv}
-                download
+                href="/documents/Sudipto_Das_CV.pdf"
+download="Sudipto_Das_CV.pdf"
                 className="text-xs font-medium px-3 py-1.5 rounded-full border border-white/[0.1] hover:bg-white/5 hover:text-white hover:border-white/30 transition-all"
               >
                 Resume

@@ -58,8 +58,8 @@ export default function Hero() {
                 View Projects <ArrowRight size={18} strokeWidth={2} stroke="currentColor" fill="none" />
               </a>
               <a
-                href={profile.cv}
-                download
+                href="/documents/Sudipto_Das_CV.pdf"
+download="Sudipto_Das_CV.pdf"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-white/10 text-white font-bold rounded-full text-sm tracking-wide hover:bg-white/5 hover:border-white/30 hover:shadow-lg transition-all duration-300"
               >
                 Resume <Download size={18} strokeWidth={2} stroke="currentColor" fill="none" />
